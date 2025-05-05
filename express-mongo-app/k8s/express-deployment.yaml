@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express
+  template:
+    metadata:
+      labels:
+        app: express
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: sit737-cluster-worker # Stay on worker
+      containers:
+        - name: express
+          image: mahashaktiman/my-mongo-app:4
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_URI
+              value: mongodb://mongouser:mongopass@mongo:27017

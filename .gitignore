@@ -1,0 +1,12 @@
+node_modules
+frontend/node_modules
+# Ignore all log files and directories
+*.log
+logs
+# Ignore npm debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Ignore local env files
+.env
+.env.local
